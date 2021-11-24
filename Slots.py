@@ -11,7 +11,7 @@ jackpot = 0
 
 #Create and Format the Display
 class slotDisplay:
-  symbols = ["Peach", "Apple", "Cherries", "Orange", "King", "Bar", "Seven", "Triple Sevens", "?"]
+  symbols = ("Peach", "Apple", "Cherries", "Orange", "King", "Bar", "Seven", "Triple Sevens", "?")
 
   def __init__(self):
     self.reel1 = []
@@ -19,26 +19,25 @@ class slotDisplay:
     self.reel3 = []
 
   def spinSlot(self):
-    reel1 = []
-    reel2 = []
-    reel3 = []
-    while len(reel1) and len(reel2) and len(reel3) < 3:
+    self.reel1 = []
+    self.reel2 = []
+    self.reel3 = []
+    while len(self.reel1) and len(self.reel2) and len(self.reel3) < 3:
       x = randrange(1,len(symbols)+1)
       y = randrange(1,len(symbols)+1)
       z = randrange(1,len(symbols)+1)
-      reel1.append = symbols[x]
-      reel2.append = symbols[y]
-      reel3.append = symbols[z]
+      self.reel1 = reel1.append(symbols[x])
+      self.reel2 = reel2.append(symbols[y])
+      self.reel3 = reel3.append(symbols[z])
 
-    return reel1, reel2, reel3
+    return self.reel1, self.reel2, self.reel3
 
 def gameBegin(Money):
   while playGame:
 
     # Initialize Machine
-    var = []
     slotmachine = slotDisplay
-    slotmachine = slotDisplay.spinSlot(var)
+    slotmachine = slotDisplay.spinSlot(slotmachine)
     print("Welcome! Minimum bet is $1")
     time.sleep(0.5)
     print("You have $" + str(Money) + ".")
